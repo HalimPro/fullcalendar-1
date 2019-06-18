@@ -31,9 +31,9 @@ var defaults = {
 	weekNumberTitle: 'W',
 	
 	// editing
-	//editable: false,
-	//disableDragging: false,
-	//disableResizing: false,
+	editable: false,
+	disableDragging: false,
+	disableResizing: false,
 	
 	allDayDefault: true,
 	ignoreTimezone: true,
@@ -83,7 +83,7 @@ var defaults = {
 		next: 'circle-triangle-e'
 	},
 	
-	//selectable: false,
+	selectable: false,
 	unselectAuto: true,
 	
 	dropAccept: '*',
@@ -1851,14 +1851,14 @@ function disableTextSelection(element) {
 }
 
 
-/*
-function enableTextSelection(element) {
-	element
-		.attr('unselectable', 'off')
-		.css('MozUserSelect', '')
-		.unbind('selectstart.ui');
-}
-*/
+
+// function enableTextSelection(element) {
+// 	element
+// 		.attr('unselectable', 'off')
+// 		.css('MozUserSelect', '')
+// 		.unbind('selectstart.ui');
+// }
+
 
 
 function markFirstLast(e) {

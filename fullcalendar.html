@@ -65,7 +65,27 @@
 
                       $('#dataModal').modal('show'); 
     				});
+    				// element.bind('dragend', function() { //event click foreach evenet 
+    				// 	 alert(event.id);
+    				// 	 document.getElementById('spanTest').innerHTML = event.start;
+
+    				// });
+
+
+    				// element.bind('dragstop', function() { //event click foreach evenet 
+    				 
+    				// 	 document.getElementById('spanTest').innerHTML = event.activeStart;
+    				// });
+
+
+    				element.bind('draggableDayEvent', function() { //event click foreach evenet 
+    					 alert(event.id);
+    				 	
+    					 // document.getElementById('spanTest').innerHTML = event.activeStart;
+    				});
+
     			},
+
 			header: {
 				left: 'title',
 				center: 'agendaDay,agendaWeek,month',
@@ -102,9 +122,10 @@
 						},
 						true // make the event "stick"
 					);
+
 				}
 				calendar.fullCalendar('unselect');
-			},
+			}, 
 			droppable: true, // this allows things to be dropped onto the calendar !!!
 			drop: function(date, allDay) { // this function is called when something is dropped
 
@@ -126,9 +147,20 @@
 				if ($('#drop-remove').is(':checked')) {
 					// if so, remove the element from the "Draggable Events" list
 					$(this).remove();
+
 				}
 
 			},
+
+			 eventResize: function(event) {
+     
+    			document.getElementById('spanTest').innerHTML = event.end;
+
+    			// if (!confirm("is this okay?")) {
+
+    		 //  // info.revert();
+   			 // }
+  			},
 
 			events: [
 				{
@@ -144,7 +176,7 @@
 					className: 'info'
 				},
 				{
-					id: 999,
+					id: 874,
 					title: 'Repeating Event',
 					start: new Date(y, m, d+4, 16, 0),
 					allDay: false,
@@ -171,7 +203,8 @@
 					start: new Date(y, m, d+1, 19, 0),
 					end: new Date(y, m, d+1, 22, 30),
 					allDay: false,
-				},
+				}, 
+
 				{
 					id: 210,
 					title: 'Click for Google',
@@ -181,6 +214,8 @@
 					className: 'success'
 				}
 			],
+
+			
 		});
 
 
@@ -264,5 +299,6 @@
       </div>   
  </div> 
 <!-- ----------------------- -->
+<span id="spanTest"></span>
 </body>
 </html>
