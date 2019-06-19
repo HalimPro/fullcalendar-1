@@ -14,6 +14,9 @@
 <!-- <script src='assets/js/jquery-1.10.2.js' type="text/javascript"></script> -->
 <script src='assets/js/jquery-ui.custom.min.js' type="text/javascript"></script>
 <script src='assets/js/fullcalendar.js' type="text/javascript"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+
 <script>
 
 	$(document).ready(function() {
@@ -61,7 +64,7 @@
     				element.attr( 'id', event.id );
     				element.bind('click', function() { //event click foreach evenet 
     					var event_id = event.id;
-    			      $('#Model-detail').html("id:"+event_id).show(); //show modal with id event
+    			      $('#Model-detail').html("<div class='row options'><div class='col-md-3'><a class='btnEventdetail'><i class='fa fa-trash' aria-hidden='true'></i></a></div><div class='col-md-3'><a class='btnEventdetail'><i class='fa fa-cog' aria-hidden='true'></i></a></div><div class='col-md-3'><a class='btnEventdetail'><i class='fa fa-cog' aria-hidden='true'></i></a></div></div><div class='row'><img src='https://cdn.dribbble.com/users/3142889/screenshots/6583825/vzz.png' width='100%' height='100%'></div><div class='row options detailEvent'><div class='col-md-12'><span>titre:"+event_id+"</span></div><div class='col-md-12'><span>description:</span></div><div class='col-md-6'><span>description:</span></div><div class='col-md-6'><span>description:</span></div></div>").show(); //show modal with id event
 
                       $('#dataModal').modal('show'); 
     				});
@@ -70,6 +73,7 @@
     				// 	 document.getElementById('spanTest').innerHTML = event.start;
 
     				// });
+
 
 
     				// element.bind('dragstop', function() { //event click foreach evenet 
@@ -154,11 +158,11 @@
 
 			 eventResize: function(event) {
      
-    			document.getElementById('spanTest').innerHTML = event.end;
+    			document.getElementById('spanTest').innerHTML = event.end+"::"+event.start;
 
     			// if (!confirm("is this okay?")) {
 
-    		 //  // info.revert();
+    		 //  event.revert();
    			 // }
   			},
 
@@ -278,6 +282,36 @@
 		  border-radius: 6px;
         box-shadow: 0 1px 2px #C3C3C3;
 		}
+		#Model-detail{ 
+			border-radius: 0px;
+			padding: 0px;
+        box-shadow: 0 1px 2px #C3C3C3;
+
+		}
+		.options{
+			padding: 15px 10px 15px 10px;
+			background:white;
+		}
+		.detailEvent{
+			text-align: left;
+			font-family: 'Open Sans', sans-serif;
+
+		}
+		.btnEventdetail{
+			font-size: 24px;
+			padding: 7px 12px 7px 12px;
+			background:white;
+			cursor: pointer;
+			border-radius: 3px; 
+			border:1px solid white;
+		}
+		.btnEventdetail:hover{
+			border:1px solid silver;
+
+		}
+		.modal-backdrop{
+			background:none !important;
+		}
 
 </style>
 </head>
@@ -290,14 +324,25 @@
 </div>
 
 <!-- Modal bootstrap -->
-<div id="dataModal" class="modal fade" style="padding: 50px 0px 0px 100px;margin: 0 auto;">
-      <div class="modal-dialog" style="padding: 10px 0px 0px 0px;max-width: 350px; ">  
-           <div class="modal-content" style="padding: 0;margin: 0 auto;max-width: 350px; ">     
-                <div class="modal-body" id="Model-detail" style="max-width: 350px;  ">  
+<div id="dataModal" class="modal fade" style="padding: 50px 0px 0px 100px;margin: 0 auto;background:none !important;">
+      <div class="modal-dialog" style="padding: 10px 0px 0px 0px;max-width: 350px; background:none !important;">  
+           <div class="modal-content" style="padding: 0;margin: 0 auto;max-width: 350px; background:none !important;">     
+                <div class="modal-body" id="Model-detail" style="max-width: 350px; background:none !important;">  
+                	<div class="row">
+                		<div class="col-md-3">
+                			1
+                		</div>
+                		<div class="col-md-3">
+                			1
+                		</div>
+                		<div class="col-md-3">
+                			1
+                		</div>
+                	</div>
                 </div>  
            </div> 
       </div>   
- </div> 
+ </div>  
 <!-- ----------------------- -->
 <span id="spanTest"></span>
 </body>
